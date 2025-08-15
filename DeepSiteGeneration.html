@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Studio | Graphic Design Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-overlay {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #4f46e5;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-indigo-600">CREATIVE</span>
+                    <span class="text-2xl font-bold text-gray-800">STUDIO</span>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link px-3 py-2 text-sm font-medium text-gray-800 hover:text-indigo-600">Home</a>
+                        <a href="#about" class="nav-link px-3 py-2 text-sm font-medium text-gray-800 hover:text-indigo-600">About</a>
+                        <a href="#portfolio" class="nav-link px-3 py-2 text-sm font-medium text-gray-800 hover:text-indigo-600">Portfolio</a>
+                        <a href="#services" class="nav-link px-3 py-2 text-sm font-medium text-gray-800 hover:text-indigo-600">Services</a>
+                        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium text-gray-800 hover:text-indigo-600">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 hover:text-indigo-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-indigo-600">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-indigo-600">About</a>
+                <a href="#portfolio" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-indigo-600">Portfolio</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-indigo-600">Services</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-indigo-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-indigo-50 to-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">Creative Design <span class="text-indigo-600">Solutions</span></h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8">Transforming ideas into visually stunning realities with innovative design solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#portfolio" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg hover:shadow-xl">View Portfolio</a>
+                        <a href="#contact" class="px-6 py-3 border-2 border-indigo-600 text-indigo-600 font-medium rounded-lg hover:bg-indigo-50 transition duration-300">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Designer working" class="rounded-lg shadow-2xl floating max-w-md w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About <span class="text-indigo-600">Me</span></h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Designer portrait" class="rounded-full w-64 h-64 object-cover shadow-xl border-4 border-white">
+                        <div class="absolute -bottom-5 -right-5 bg-indigo-600 text-white p-4 rounded-full shadow-lg">
+                            <i class="fas fa-palette text-3xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Hello, I'm <span class="text-indigo-600">Alex Morgan</span></h3>
+                    <p class="text-gray-600 mb-6">I'm a passionate graphic designer with over 8 years of experience creating compelling visual identities for brands across various industries. My approach combines artistic sensibility with strategic thinking to deliver designs that not only look beautiful but also communicate effectively.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-lightbulb text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Creative Vision</h4>
+                                <p class="text-gray-600 text-sm">Unique concepts that stand out from the crowd</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-mobile-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Responsive Design</h4>
+                                <p class="text-gray-600 text-sm">Designs that work across all devices</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-bolt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Fast Delivery</h4>
+                                <p class="text-gray-600 text-sm">Quick turnaround without compromising quality</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-headset text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Dedicated Support</h4>
+                                <p class="text-gray-600 text-sm">Ongoing assistance after project completion</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-gray-100 px-4 py-2 rounded-full">
+                            <span class="text-gray-800">Brand Identity</span>
+                        </div>
+                        <div class="bg-gray-100 px-4 py-2 rounded-full">
+                            <span class="text-gray-800">UI/UX Design</span>
+                        </div>
+                        <div class="bg-gray-100 px-4 py-2 rounded-full">
+                            <span class="text-gray-800">Print Design</span>
+                        </div>
+                        <div class="bg-gray-100 px-4 py-2 rounded-full">
+                            <span class="text-gray-800">Illustration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">My <span class="text-indigo-600">Portfolio</span></h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Explore a selection of my recent design projects across various industries and design disciplines.</p>
+            </div>
+            
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-md shadow-sm">
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium rounded-l-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50" data-filter="all">
+                        All Works
+                    </button>
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50" data-filter="branding">
+                        Branding
+                    </button>
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50" data-filter="web">
+                        Web Design
+                    </button>
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium rounded-r-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50" data-filter="print">
+                        Print
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card relative rounded-lg overflow-hidden shadow-lg" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Branding Project" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">EcoLife Branding</h3>
+                        <p class="text-sm mb-4 text-center">Complete brand identity for sustainable lifestyle company</p>
+                        <a href="#" class="px-4 py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 transition">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card relative rounded-lg overflow-hidden shadow-lg" data-category="web">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Web Design Project" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">TechHub Dashboard</h3>
+                        <p class="text-sm mb-4 text-center">Modern UI/UX design for SaaS analytics platform</p>
+                        <a href="#" class="px-4 py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 transition">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card relative rounded-lg overflow-hidden shadow-lg" data-category="print">
+                    <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Print Design Project" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Urban Magazine</h3>
+                        <p class="text-sm mb-4 text-center">Editorial design for contemporary culture magazine</p>
+                        <a href="#" class="px-4 py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 transition">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card relative rounded-lg overflow-hidden shadow-lg" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1567443024551-f3e3a7ae8a83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Branding Project" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">BrewCraft Identity</h3>
+                        <p class="text-sm mb-4 text-center">Logo and packaging for artisanal coffee brand</p>
+                        <a href="#" class="px-4 py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 transition">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card relative rounded-lg overflow-hidden shadow-lg" data-category="web">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1136&q=80" alt="Web Design Project" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">TravelEase Website</h3>
+                        <p class="text-sm mb-4 text-center">Responsive travel booking platform design</p>
+                        <a href="#" class="px-4 py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 transition">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card relative rounded-lg overflow-hidden shadow-lg" data-category="print">
+                    <img src="https://images.unsplash.com/photo-1584917865448-de9e0d51d123?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Print Design Project" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Music Festival Posters</h3>
+                        <p class="text-sm mb-4 text-center">Vibrant poster series for annual music festival</p>
+                        <a href="#" class="px-4 py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 transition">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">My <span class="text-indigo-600">Services</span></h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Comprehensive design services tailored to meet your business needs and elevate your brand.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-pencil-alt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Brand Identity</h3>
+                    <p class="text-gray-600 mb-4">Crafting memorable logos and comprehensive visual identities that communicate your brand's essence and values.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Logo Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Brand Guidelines</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Visual Identity Systems</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">UI/UX Design</h3>
+                    <p class="text-gray-600 mb-4">Creating intuitive and visually appealing digital experiences that engage users and drive conversions.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Website Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Mobile App Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">User Experience Strategy</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-print text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Print Design</h3>
+                    <p class="text-gray-600 mb-4">Designing impactful print materials that make a lasting impression in the physical world.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Business Cards</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Brochures & Flyers</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Packaging Design</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Illustration</h3>
+                    <p class="text-gray-600 mb-4">Custom illustrations that bring your ideas to life with unique artistic style and personality.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Digital Illustrations</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Character Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Icon Sets</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-photo-video text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Social Media Graphics</h3>
+                    <p class="text-gray-600 mb-4">Eye-catching visuals optimized for social platforms to boost your online presence and engagement.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Post Designs</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Story Templates</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Campaign Visuals</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-cubes text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">3D Design</h3>
+                    <p class="text-gray-600 mb-4">Three-dimensional designs that add depth and realism to your visual communications.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Product Visualization</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">3D Typography</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-indigo-600 mr-2"></i>
+                            <span class="text-gray-600">Environmental Design</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Client <span class="text-indigo-600">Testimonials</span></h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">What my clients say about working with me and the results we've achieved together.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Client" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Michael Johnson</h4>
+                            <p class="text-indigo-600 text-sm">CEO, TechSolutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Working with Alex was a game-changer for our brand. The new visual identity perfectly captures our innovative spirit and has helped us stand out in a crowded market."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Client" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sarah Williams</h4>
+                            <p class="text-indigo-600 text-sm">Marketing Director, GreenLife</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The website Alex designed for us exceeded all expectations. The user experience is seamless, and we've seen a 40% increase in conversions since launch."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Client" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">David Chen</h4>
+                            <p class="text-indigo-600 text-sm">Founder, BrewCraft</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Alex's packaging designs for our coffee brand have been instrumental in our retail success. The designs are not just beautiful but also highly functional."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get In <span class="text-indigo-600">Touch</span></h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Have a project in mind or want to discuss potential collaboration? I'd love to hear from you!</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg hover:shadow-xl">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Location</h4>
+                                    <p class="text-gray-600">123 Design Street, Creative City, CA 90210</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Email</h4>
+                                    <p class="text-gray-600">hello@creativestudio.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Phone</h4>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Working Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 9am - 6pm</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-gray-800 mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-indigo-100 w-10 h-10 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white transition">
+                                    <i class="fab fa-behance"></i>
+                                </a>
+                                <a href="#" class="bg-indigo-100 w-10 h-10 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white transition">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                                <a href="#" class="bg-indigo-100 w-10 h-10 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-indigo-100 w-10 h-10 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Creative Studio</h3>
+                    <p class="text-gray-400">Transforming ideas into visually stunning realities with innovative design solutions.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Print Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Illustration</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">3D Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on my latest projects and design tips.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 w-full">
+                        <button type="submit" class="bg-indigo-600 px-4 py-2 rounded-r-lg hover:bg-indigo-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Creative Studio. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-indigo-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-indigo-700 transition hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                // Add active class to clicked button
+                button.classList.remove('bg-white', 'text-gray-700');
+                button.classList.add('bg-indigo-600', 'text-white');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
